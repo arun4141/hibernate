@@ -1,0 +1,10 @@
+package com.rays.auction;
+
+public class TestLazyEager {
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}

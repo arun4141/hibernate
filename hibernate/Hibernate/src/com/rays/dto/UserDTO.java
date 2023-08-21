@@ -1,0 +1,40 @@
+package com.rays.dto;
+
+public class UserDTO {
+	private int id;
+	private String Fristname;
+	private String Lastname;
+	private String Login;
+	private String Password;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFristname() {
+		return Fristname;
+	}
+	public void setFristname(String fristname) {
+		Fristname = fristname;
+	}
+	public String getLastname() {
+		return Lastname;
+	}
+	public void setLastname(String lastname) {
+		Lastname = lastname;
+	}
+	public String getLogin() {
+		return Login;
+	}
+	public void setLogin(String login) {
+		Login = login;
+	}
+	public String getPassword() {
+		return Password;
+	}
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+}

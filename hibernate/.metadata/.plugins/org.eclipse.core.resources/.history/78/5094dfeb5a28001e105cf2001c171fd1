@@ -1,0 +1,10 @@
+package com.rays.dtotest;
+
+public class TestLazyEager {
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}

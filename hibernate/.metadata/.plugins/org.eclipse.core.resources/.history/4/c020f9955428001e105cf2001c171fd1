@@ -1,0 +1,39 @@
+package com.rays.dtotest;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.rays.dto.UserDTO;
+
+public class TestEviet {
+
+	public static void main(String[] args) {
+		
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		  
+		  Session session = sf.openSession();
+		  
+		  Transaction tx = session.beginTransaction();
+		  
+		 UserDTO current = (UserDTO)  session.get(UserDTO.class, 1);
+		 
+		 UserDTO changed = new UserDTO();
+		 
+		 changed.setId(1);
+		 changed.setFristname("sonu");
+		 changed.setLastname("gurjar");
+		 changed.setLogin("ammm@gmail.com");
+		 changed.setPassword("sdfsdgd");
+		 
+		 
+		 session.update(changed);
+		 
+		 tx.commit();
+		 session.close()
+		 
+
+	}
+
+}

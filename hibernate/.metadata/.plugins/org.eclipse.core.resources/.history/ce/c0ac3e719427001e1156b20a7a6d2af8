@@ -1,0 +1,28 @@
+package com.rays.oneone;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.rays.auction.Auctionltem;
+
+public class TestDirtyCheck {
+
+	public static void main(String[] args) {
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		Auctionltem dto = (Auctionltem) session.get(Auctionltem.class, 1);
+
+		dto.setDescription("xyz");
+		tx.commit();
+		session.close();
+
+	}
+
+}

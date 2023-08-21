@@ -1,0 +1,44 @@
+package com.rays.dtotest;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.rays.dto.UserDTO;
+
+
+
+public class TestAuth {
+
+	public static void main(String[] args) {
+		
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+		
+		Query q = session.createQuery("from UserDTO where Loginid=? and Password=?");
+		
+		q.setString(0,"gour@gmail.com");
+		q.setString(1,"Pass@1234567");
+		
+	List list = q.list();
+	
+	if(list.size()> 0) {
+		
+		UserDTO dto = (UserDTO) list.get(0);
+		
+		System.out.println(dto.getId());
+		
+	}else {
+		System.out.println("inst................");
+		
+		session.close();
+	}
+		
+
+	}
+
+}
